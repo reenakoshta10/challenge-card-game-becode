@@ -1,12 +1,12 @@
-## Mission objectives
+# A Card Game
 
-Create a card game in python.
+This is the card game where we will perform following operations:-
 
-![Card game!](https://media.giphy.com/media/3o7TKP35NXE4rWwXjW/giphy.gif)
+- Create deck of cards and 
+- Distributes all cards between the different players 
+- Each player plays a card at every turn, until there are no cards left.
+- Game will over when there is no more card left with player
 
-## The Mission
+# Usage
 
-You apply for a job as a developer for an online casino called `WeTakeYourMoney`.
-
-They are interested in your profile.
-During the interview challenge, they ask you to build a card game in Python.
+To run this game you need to run `main.py` file
