@@ -31,7 +31,7 @@ class Board:
         deck.fill_deck()  # This will fill the deck
         deck.shuffle()  # This will shuffle cards in deck
         for i in range(number_of_player):
-            player = Player("player" + str(i + 1))
+            player = Player(input("Enter name of Player "+str(i+1)+":"))
             self.players.append(player)
 
         deck.distribute(self.players)  # This will distribute cards to all the players
