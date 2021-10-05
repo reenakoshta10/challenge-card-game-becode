@@ -52,12 +52,11 @@ class Deck:
         """This method will fill cards with a complete card game (an instance of 'A, 2, 
         3, 4, 5, 6, 7, 8, 9, 10, J, Q, K' for each possible symbol [hearts, diamonds, 
         clubs, spades]). Your deck should contain 52 cards at the end"""
-        print("I am filling deck")
         symbols = ["♠", "♥", "♣", "♦"]
         values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
 
         # iteration for all symbols and value to get all the card combination possible
-
+        # with card value rank
         icon_rank = 1
         for symbol in symbols:
             rank = 13
@@ -78,17 +77,17 @@ class Deck:
     def distribute(self, playerList: List[Player]):
         """This method will distribute the cards evenly between all the players passed 
         by the parameter"""
-        print("I am distributing cards")
-        i = 0
-        while len(self.cards) > i:
-            for (
-                player
-            ) in (
-                playerList
-            ):  # iterating for all the player and assigning one card everytime
-                if len(self.cards) > i:
-                    player.cards.append(self.cards[i])
-                    i += 1
+        while len(self.cards) > 0:
+
+            # iterating for all the player and assigning one card everytime
+            # moving card from deck card to player cards
+            for player in playerList:
+                player.cards.append(self.cards[0])
+                self.cards.pop(0)
+
+            # break execution if cards in deck is less the the number of players
+            if len(self.cards) < len(playerList):
+                break
 
     def __str__(self) -> str:
         message = ""

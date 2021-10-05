@@ -42,14 +42,16 @@ class Board:
 
         # Game will start here
         while player_with_no_card < len(self.players):
-            print("\n=====================================================================")
+            print(
+                "\n====================================================================="
+            )
 
             self.turn_count += 1
             for player in self.players:
                 played_card = player.play()
                 if played_card is not None:
-                    # Active card length can be equal to number of player so in every turn 
-                    # if number of active card is equal to number of players then before adding 
+                    # Active card length can be equal to number of player so in every turn
+                    # if number of active card is equal to number of players then before adding
                     # new card to active card we me 1st active card to history cards list.
                     if len(self.active_cards) >= len(self.players):
                         self.history_cards.append(self.active_cards[0])
@@ -62,7 +64,7 @@ class Board:
             if player_with_no_card >= len(self.players):
                 break
 
-            # find the max value card    
+            # find the max value card
             max_card = None
             for card in self.active_cards:
                 if max_card is None or max_card.rank > card.rank:
@@ -70,8 +72,8 @@ class Board:
                 elif max_card.rank == card.rank:
                     if max_card.icon_rank > card.icon_rank:
                         max_card = card
-                        
-            # Add point to the player played high value card    
+
+            # Add point to the player played high value card
             self.players[self.active_cards.index(max_card)].points += 1
 
             # Printing result after each turn
@@ -80,13 +82,12 @@ class Board:
             for card in self.active_cards:
                 print(card)
             print("The number of cards in the history_cards", len(self.history_cards))
-            
 
         # find player with highest points
-        winner = max(self.players, key=attrgetter('points'))
+        winner = max(self.players, key=attrgetter("points"))
 
         # declare the winner of the game
-        print("\t",winner.name, "is the winner.\t")
+        print("\t", winner.name, "is the winner\t")
         print("=====================================================================")
 
     def __str__(self) -> str:
