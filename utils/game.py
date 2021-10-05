@@ -33,7 +33,7 @@ class Board:
         deck.fill_deck()  # This will fill the deck
         deck.shuffle()  # This will shuffle cards in deck
         for i in range(number_of_player):
-            player = Player(input("Enter name of Player "+str(i+1)+":"))
+            player = Player(input("Enter name of Player "+str(i+1)+" : "))
             self.players.append(player)
 
         deck.distribute(self.players)  # This will distribute cards to all the players
@@ -84,10 +84,17 @@ class Board:
             print("The number of cards in the history_cards", len(self.history_cards))
 
         # find player with highest points
-        winner = max(self.players, key=attrgetter("points"))
+        max_point = max(self.players, key=attrgetter("points")).points
+        winners = [p for p in self.players if p.points == max_point]
 
         # declare the winner of the game
-        print("\t", winner.name, "is the winner\t")
+        if(len(winners)>1):
+            print("\tIt's a tie")
+            print("\tWinners are ", end="")
+            message = ' and '.join([winner.name for winner in winners])
+            print(message)
+        else:
+            print("\t", winners[0].name, "is the winner\t")
         print("=====================================================================")
 
     def __str__(self) -> str:
