@@ -12,6 +12,7 @@ class Player:
         self.turn_count = 0
         self.number_of_cards = 0
         self.history: list(Card) = []
+        self.points: int = 0
 
     def play(self):
         """This function will perform following operations:-
@@ -52,18 +53,22 @@ class Deck:
         3, 4, 5, 6, 7, 8, 9, 10, J, Q, K' for each possible symbol [hearts, diamonds, 
         clubs, spades]). Your deck should contain 52 cards at the end"""
         print("I am filling deck")
-        symbols = ["♥", "♦", "♣", "♠"]
-        values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+        symbols = ["♠", "♥", "♣", "♦"]
+        values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
 
         # iteration for all symbols and value to get all the card combination possible
 
+        icon_rank = 1
         for symbol in symbols:
+            rank = 13
             for value in values:
                 if symbol in ["♥", "♦"]:
                     color = "Red"
                 else:
                     color = "Black"
-                card = Card(color, symbol, value)
+                card = Card(color, symbol, value, rank, icon_rank)
+                rank -= 1
+                icon_rank += 1
                 self.cards.append(card)
 
     def shuffle(self):
