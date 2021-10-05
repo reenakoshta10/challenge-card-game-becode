@@ -35,34 +35,39 @@ class Board:
             self.players.append(player)
 
         deck.distribute(self.players)  # This will distribute cards to all the players
-        # Game will start here
-        while True:
-            print("----------------------------------------------------------")
-            self.history_cards.extend(
-                self.active_cards
-            )  # Adding active cards to history
-            self.active_cards.clear()
-            self.turn_count += 1
 
+        player_with_no_card = 0
+
+        # Game will start here
+        while player_with_no_card < len(self.players):
+            print("----------------------------------------------------------")
+
+            self.turn_count += 1
             for player in self.players:
                 played_card = player.play()
                 if played_card is not None:
+                    # Active card length can be equal to number of player so in every turn 
+                    # if number of active card is equal to number of players then before adding 
+                    # new card to active card we me 1st active card to history cards list.
+                    if len(self.active_cards) >= len(self.players):
+                        self.history_cards.append(self.active_cards[0])
+                        self.active_cards.pop(0)
                     self.active_cards.append(played_card)
+                else:
+                    player_with_no_card += 1
+
+            # Game over when no played left with card
+            if player_with_no_card >= len(self.players):
+                break
 
             # Printing result after each turn
-            if len(self.active_cards) != 0:
-                print("Turn count is", self.turn_count)
-                print("Active cards are:")
+            print("Turn count is", self.turn_count)
+            print("Active cards are:")
 
-                for card in self.active_cards:
-                    print(card)
+            for card in self.active_cards:
+                print(card)
 
-                print(
-                    "The number of cards in the history_cards", len(self.history_cards)
-                )
-
-            if len(self.active_cards) < len(self.players):
-                break
+            print("The number of cards in the history_cards", len(self.history_cards))
 
     def __str__(self) -> str:
         message = ""
