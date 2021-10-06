@@ -22,19 +22,17 @@ class Player:
         4. Return the Card"""
         if len(self.cards) > 0:
             self.turn_count += 1
-            print("{}, Which card you want to play from below available cards? Please enter the index number."
+            print("\n{}, Which card you want to play from below available cards? Please enter the index number."
             .format((self.name).capitalize()))
-            # print([str(i)+' : '+ str(card) for card, i in zip(self.cards, range(1,len(self.cards)+1))], sep= ', ')
             print('[', end='')
             for card in self.cards:
                 if self.cards.index(card)+1 == len(self.cards):
-                    print(self.cards.index(card)+1,' : ', card, end = ']')
+                    print(self.cards.index(card)+1,' : ', card, end = ']\n')
                 else:
                     print(self.cards.index(card)+1,' : ', card, end = ', ')
-            selected_card=input("\n")
-
-            if int(selected_card) > len(self.cards) or selected_card == '':
-                selected_card= int(input("Enter a value number from the list provided"))
+            selected_card=input()
+            while selected_card == '' or int(selected_card) > len(self.cards) :
+                selected_card= input("Enter a value number from the list provided: ")
             else:
                 selected_card= int(selected_card)
             # random_card= [card for card in self.cards if card.icon == selected_card[1] and card.value == selected_card[0]][0]
