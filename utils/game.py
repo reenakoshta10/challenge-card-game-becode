@@ -43,6 +43,10 @@ class Board:
             print("----------------------------------------------------------")
 
             self.turn_count += 1
+            if self.turn_count> 52//len(self.players):
+                break
+            print("Round",self.turn_count,"\n")
+
             for player in self.players:
                 played_card = player.play()
                 if played_card is not None:
@@ -61,7 +65,7 @@ class Board:
                 break
 
             # Printing result after each turn
-            print("Turn count is", self.turn_count)
+            # print("Turn count is", self.turn_count)
             print("Active cards are:")
 
             for card in self.active_cards:
