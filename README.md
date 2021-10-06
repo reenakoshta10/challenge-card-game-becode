@@ -36,7 +36,7 @@ Game will end when no player left with card.
 
 ## What is in project module?
 
-Project has structure as below-
+Project has structure as below -
 - asset folder - contains image used in README.md file
 - utils folder - contains below files
   * card.py - it cantains information about card symbol and value
@@ -44,6 +44,13 @@ Project has structure as below-
   * player.py - contains details about how deck will be created, shuffled and card destributed and how player plays game.
 - main.py - contain logic to start game
 
+## Advance features
+
+To make game more interative following advance feature has been added in [nice-to-have-features](https://github.com/reenakoshta10/challenge-card-game-becode/tree/nice-to-have-features) branch -
+
+- In each turn, player can decide which card he/she wants to play.
+- Player will get a point he/she if the card played by him/her is the most powerful card played in that turn.
+- Winner will be declared at the end of the game.
 ## Contact
 
 Created by [Reena Koshta](https://github.com/reenakoshta10) - feel free to contact me!
