@@ -41,8 +41,8 @@ class Player:
                 random_card
             )  # and will be moved to list of card history
             print(
-                "{} {} played: {} {}.".format(
-                    self.name, self.turn_count, random_card.value, random_card.icon
+                "{} {} played: {}.".format(
+                    self.name, self.turn_count, random_card
                 )
             )
             return random_card

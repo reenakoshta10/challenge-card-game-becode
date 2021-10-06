@@ -80,10 +80,11 @@ class Board:
             self.players[self.active_cards.index(max_card)].points += 1
  
             # Printing result after each turn
-            print("\nActive cards are:")
-            for card in self.active_cards:
-                print(card)
-            print("The number of cards in the history_cards", len(self.history_cards))
+            print("\nActive cards are:", end=" ")
+
+            print(*self.active_cards, sep=", ")
+
+            print("The number of cards in the history: ", len(self.history_cards))
 
         # find player with highest points
         max_point = max(self.players, key=attrgetter("points")).points
