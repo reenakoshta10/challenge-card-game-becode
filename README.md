@@ -14,7 +14,13 @@ To run this project execute below commands
 
 `cd challenge-card-game-becode`
 
+If default python version is python3 on your local then run below command -
+
 `python main.py`
+
+otherwise run this command -
+
+`python3 main.py`
 
 ## What should you do project execution started?
 
