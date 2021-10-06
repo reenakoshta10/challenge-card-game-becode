@@ -22,6 +22,8 @@ class Player:
         4. Return the Card"""
         if len(self.cards) > 0:
             self.turn_count += 1
+
+            # ask player to play a card from the list of card he has.
             print("\n{}, Which card you want to play from below available cards? Please enter the index number."
             .format((self.name).capitalize()))
             print('[', end='')
@@ -31,13 +33,17 @@ class Player:
                 else:
                     print(self.cards.index(card)+1,' : ', card, end = ', ')
             selected_card=input()
-            while selected_card == '' or int(selected_card) > len(self.cards) :
+
+            # if player selected an invalid card number then it should show the error and ask to select card again.
+            #  
+            while(selected_card == '' or selected_card.isnumeric() is False 
+            or int(selected_card) > len(self.cards) or int(selected_card) < 1):
                 selected_card= input("Enter a value number from the list provided: ")
             else:
                 selected_card= int(selected_card)
-            # random_card= [card for card in self.cards if card.icon == selected_card[1] and card.value == selected_card[0]][0]
+
             random_card= self.cards[selected_card-1]
-            #random_card = random.choice(self.cards)  # player selecting randon card
+            
             self.cards.remove(
                 random_card
             )  # card will be removed from player cards list
