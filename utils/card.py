@@ -8,9 +8,9 @@ class Symbol:
 
     def __str__(self) -> str:
         if self.color == 'Red':
-            return "\033[1;31m"+self.icon+"\033[0;0m"
+            return "\033[1;31m"+self.icon+"\033[0;0m" # print symbol in Red color
         else:
-            return "\033[1;37m" + self.icon +"\033[0;0m"
+            return "\033[1;37m" + self.icon +"\033[0;0m" # print symbol in white color
 
 
 class Card(Symbol):
