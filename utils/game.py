@@ -65,13 +65,11 @@ class Board:
                 break
 
             # Printing result after each turn
-            # print("Turn count is", self.turn_count)
-            print("Active cards are:")
+            print("\nActive cards are:", end=" ")
 
-            for card in self.active_cards:
-                print(card)
+            print(*self.active_cards, sep=", ")
 
-            print("The number of cards in the history_cards", len(self.history_cards))
+            print("The number of cards in the history: ", len(self.history_cards))
 
     def __str__(self) -> str:
         message = ""

@@ -6,7 +6,10 @@ class Symbol:
         self.icon: str = icon
 
     def __str__(self) -> str:
-        return "symbol: " + self.color + " " + self.icon
+        if self.color == 'Red':
+            return "\033[1;31m"+self.icon+"\033[0;0m"
+        else:
+            return "\033[1;37m" + self.icon +"\033[0;0m"
 
 
 class Card(Symbol):
@@ -17,4 +20,4 @@ class Card(Symbol):
         self.value: str = value
 
     def __str__(self) -> str:
-        return super().__str__() + " value: " + self.value
+        return self.value + super().__str__() 
