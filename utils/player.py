@@ -28,11 +28,7 @@ class Player:
             self.history.append(
                 random_card
             )  # and will be moved to list of card history
-            print(
-                "{} {} played: {}.".format(
-                    self.name, self.turn_count, random_card
-                )
-            )
+            print("{} {} played: {}.".format(self.name, self.turn_count, random_card))
             return random_card
         else:
             return None
@@ -51,7 +47,7 @@ class Deck:
         """This method will fill cards with a complete card game (an instance of 'A, 2, 
         3, 4, 5, 6, 7, 8, 9, 10, J, Q, K' for each possible symbol [hearts, diamonds, 
         clubs, spades]). Your deck should contain 52 cards at the end"""
-        
+
         symbols = ["♥", "♦", "♣", "♠"]
         values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 

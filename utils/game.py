@@ -31,7 +31,7 @@ class Board:
         deck.fill_deck()  # This will fill the deck
         deck.shuffle()  # This will shuffle cards in deck
         for i in range(number_of_player):
-            player = Player(input("Enter name of Player "+str(i+1)+":"))
+            player = Player(input("Enter name of Player " + str(i + 1) + ":"))
             self.players.append(player)
 
         deck.distribute(self.players)  # This will distribute cards to all the players
@@ -43,15 +43,15 @@ class Board:
             print("----------------------------------------------------------")
 
             self.turn_count += 1
-            if self.turn_count> 52//len(self.players):
+            if self.turn_count > 52 // len(self.players):
                 break
-            print("Round",self.turn_count,"\n")
+            print("Round", self.turn_count, "\n")
 
             for player in self.players:
                 played_card = player.play()
                 if played_card is not None:
-                    # Active card length can be equal to number of player so in every turn 
-                    # if number of active card is equal to number of players then before adding 
+                    # Active card length can be equal to number of player so in every turn
+                    # if number of active card is equal to number of players then before adding
                     # new card to active card we me 1st active card to history cards list.
                     if len(self.active_cards) >= len(self.players):
                         self.history_cards.append(self.active_cards[0])

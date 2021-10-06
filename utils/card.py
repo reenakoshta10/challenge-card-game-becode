@@ -6,10 +6,10 @@ class Symbol:
         self.icon: str = icon
 
     def __str__(self) -> str:
-        if self.color == 'Red':
-            return "\033[1;31m"+self.icon+"\033[0;0m"
+        if self.color == "Red":
+            return "\033[1;31m" + self.icon + "\033[0;0m" # print symbol with color
         else:
-            return "\033[1;37m" + self.icon +"\033[0;0m"
+            return "\033[1;37m" + self.icon + "\033[0;0m" # print symbol with color
 
 
 class Card(Symbol):
@@ -20,4 +20,4 @@ class Card(Symbol):
         self.value: str = value
 
     def __str__(self) -> str:
-        return self.value + super().__str__() 
+        return self.value + super().__str__()
