@@ -100,6 +100,7 @@ class Deck:
             if len(self.cards) < len(playerList):
                 break
 
+
     def __str__(self) -> str:
         message = ""
         for card in self.cards:

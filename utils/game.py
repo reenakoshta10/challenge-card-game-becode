@@ -46,6 +46,10 @@ class Board:
                 "\n====================================================================="
             )
             self.turn_count += 1
+            if self.turn_count> 52//len(self.players):
+                break
+            print("Round",self.turn_count,"\n")
+
             for player in self.players:
                 played_card = player.play()
                 if played_card is not None:
@@ -74,9 +78,8 @@ class Board:
 
             # Add point to the player played high value card
             self.players[self.active_cards.index(max_card)].points += 1
-
+ 
             # Printing result after each turn
-            print("\nRound", self.turn_count)
             print("\nActive cards are:")
             for card in self.active_cards:
                 print(card)
