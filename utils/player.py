@@ -24,8 +24,14 @@ class Player:
             self.turn_count += 1
             print("{}, Which card you want to play from below available cards? Please enter the index number."
             .format((self.name).capitalize()))
-            print([str(i)+' : '+ card.value + card.icon for card, i in zip(self.cards, range(1,len(self.cards)+1))], sep= ', ')
-            selected_card=input()
+            # print([str(i)+' : '+ str(card) for card, i in zip(self.cards, range(1,len(self.cards)+1))], sep= ', ')
+            print('[', end='')
+            for card in self.cards:
+                if self.cards.index(card)+1 == len(self.cards):
+                    print(self.cards.index(card)+1,' : ', card, end = ']')
+                else:
+                    print(self.cards.index(card)+1,' : ', card, end = ', ')
+            selected_card=input("\n")
 
             if int(selected_card) > len(self.cards) or selected_card == '':
                 selected_card= int(input("Enter a value number from the list provided"))
