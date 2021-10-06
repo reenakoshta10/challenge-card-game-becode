@@ -45,7 +45,6 @@ class Board:
             print(
                 "\n====================================================================="
             )
-
             self.turn_count += 1
             for player in self.players:
                 played_card = player.play()
@@ -77,7 +76,7 @@ class Board:
             self.players[self.active_cards.index(max_card)].points += 1
 
             # Printing result after each turn
-            print("\nTurn count is", self.turn_count)
+            print("\nRound", self.turn_count)
             print("\nActive cards are:")
             for card in self.active_cards:
                 print(card)

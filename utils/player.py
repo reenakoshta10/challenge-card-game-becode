@@ -22,7 +22,18 @@ class Player:
         4. Return the Card"""
         if len(self.cards) > 0:
             self.turn_count += 1
-            random_card = random.choice(self.cards)  # player selecting randon card
+            print("{}, Which card you want to play from below available cards? Please enter the index number."
+            .format((self.name).capitalize()))
+            print([str(i)+' : '+ card.value + card.icon for card, i in zip(self.cards, range(1,len(self.cards)+1))], sep= ', ')
+            selected_card=input()
+
+            if int(selected_card) > len(self.cards) or selected_card == '':
+                selected_card= int(input("Enter a value number from the list provided"))
+            else:
+                selected_card= int(selected_card)
+            # random_card= [card for card in self.cards if card.icon == selected_card[1] and card.value == selected_card[0]][0]
+            random_card= self.cards[selected_card-1]
+            #random_card = random.choice(self.cards)  # player selecting randon card
             self.cards.remove(
                 random_card
             )  # card will be removed from player cards list
