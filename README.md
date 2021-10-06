@@ -25,14 +25,18 @@ To run this project execute below commands
 
 ## What after providing player details?
 
-Game will be played automatically between all player.  
-After each round it should show message like below
+Game will start and for each round it will ask player to play a card.
+Every player has to play a card. After each round it should show message like below.
 
 ![](assets/round_details.png)
 
-## When will the game end?
+Points will added to player score if the card played by him is the most powerful card played in that turn.
+## When the game end?
 
 Game will end when no player left with card.
+Then winner of the game will be announce based on the highest score.
+
+![](assets/winner_of_the_game.png)
 
 ## What is in project module?
 
